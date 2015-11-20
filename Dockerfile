@@ -3,9 +3,9 @@ FROM daocloud.io/centos:6
 # 签名
 MAINTAINER SuJianchao "sujianchao@gmail.com"
 
-#更新系统，安装Git
+#更新系统，安装git、tar
 RUN yum -y update; yum clean all; 
-RUN yum install git -y;
+RUN yum install git tar -y;
 
 # 安装openssh-server和sudo软件包，并且将sshd的UsePAM参数设置成no
 RUN yum install -y openssh-server sudo
