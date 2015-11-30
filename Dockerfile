@@ -36,4 +36,8 @@ RUN cd /amh-4.2 && chmod 775 amh-4.2.sh && sh amh-4.2.sh
 RUN mkdir /var/run/sshd
 EXPOSE 21 22 80 8888
 
+VOLUME /home
+RUN chown -R www:www /home/www
+RUN chown -R mysql:mysql /home/mysql
+
 CMD ["/usr/sbin/sshd", "-D"]
