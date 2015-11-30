@@ -33,5 +33,5 @@ RUN cd /amh-4.2 && chmod 775 amh-4.2.sh && sh amh-4.2.sh
 # 启动sshd服务并且暴露相关端口
 RUN mkdir /var/run/sshd
 EXPOSE 21 22 80 8888
-CMD ["/usr/sbin/sshd", "-D"]
-
+#CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/etc/init.d/amh-start"]
