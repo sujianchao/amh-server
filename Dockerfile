@@ -26,12 +26,14 @@ RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 WORKDIR  /
 RUN git clone https://github.com/sujianchao/amh-4.2.git
 
-
 #执行amh.sh安装脚本
 RUN cd /amh-4.2 && chmod 775 amh-4.2.sh && sh amh-4.2.sh
- 
+
+#启动amh
+#RUN /etc/init.d/amh-start && amh host list
+
 # 启动sshd服务并且暴露相关端口
 RUN mkdir /var/run/sshd
 EXPOSE 21 22 80 8888
-#CMD ["/usr/sbin/sshd", "-D"]
-CMD ["/etc/init.d/amh-start"]
+
+CMD ["/usr/sbin/sshd", "-D"]
