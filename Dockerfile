@@ -39,5 +39,6 @@ EXPOSE 21 22 80 8888
 VOLUME /home
 RUN chown -R www:www /home/www
 RUN chown -R mysql:mysql /home/mysql
+RUN chown -R root:www /home/wwwroot
 
 CMD ["/usr/sbin/sshd", "-D"]
